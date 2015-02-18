@@ -2,3 +2,16 @@ extends ../../layouts/master
 block content
   h3 Animals
   a(href='/animals/new') New Animal
+
+  #animals
+    each animal in animals
+      .animal
+        .photo(style='background-image:url("#{animal.photo}");')
+        .info
+          .name: a(href='/animals/#{animal._id}')= animal.name
+          .description= animal.description
+          .age= animal.age
+          .gender= animal.gender
+          .species= animal.species
+          .breed= animal.breed
+          .adopted= animal.isAdopted

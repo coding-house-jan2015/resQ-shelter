@@ -1,0 +1,19 @@
+extends ../../layouts/master
+block content
+  h3 Animal
+
+  #controls
+    form(method='post', action='/animals/#{animal._id}/delete')
+      button.btn.btn-danger(type='submit') Delete Animal
+    a.btn.btn-info(href='/animals/#{animal._id}/edit') Edit Animal
+
+  .animal
+    .photo(style='background-image:url("#{animal.photo}");')
+    .info
+      .name: a(href='/animals/#{animal._id}')= animal.name
+      .description= animal.description
+      .age= animal.age
+      .gender= animal.gender
+      .species= animal.species
+      .breed= animal.breed
+      .adopted= animal.isAdopted
