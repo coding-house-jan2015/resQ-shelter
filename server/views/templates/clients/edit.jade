@@ -1,0 +1,28 @@
+extends ../../layouts/master
+block content
+
+  .btn-toolbar(role='toolbar')
+    .btn-group(role='group')
+      form(method='post', action='/clients/#{client._id}/delete')
+        button.btn.btn-danger(type='submit'): i.fa.fa-times
+    .btn-group(role='group')
+      a.btn.btn-default(href='/clients/#{client._id}'): i.fa.fa-desktop
+    .btn-group(role='group')
+      a.btn.btn-default(href='/clients/new'): i.fa.fa-plus
+    .btn-group(role='group')
+      a.btn.btn-default(href='/clients'): i.fa.fa-users
+
+  h3 Edit Client
+  
+  .row
+    .col-xs-4
+      form(method='post', action='/clients/#{client._id}')
+        .form-group
+          label(for='name') Name
+          input#name.form-control(type='text', name='name', autofocus=true, value=client.name)
+        .form-group
+          label(for='address') Address
+          textarea#address.form-control(rows='5', name='address')= client.address
+        .form-group
+          button.btn.btn-default(type='submit') Edit Client
+    .col-xs-8

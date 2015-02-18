@@ -1,0 +1,26 @@
+extends ../../layouts/master
+block content
+
+  .btn-toolbar(role='toolbar')
+    .btn-group(role='group')
+      form(method='post', action='/clients/#{client._id}/delete')
+        button.btn.btn-danger(type='submit'): i.fa.fa-times
+    .btn-group(role='group')
+      a.btn.btn-default(href='/clients/#{client._id}/edit'): i.fa.fa-pencil-square-o
+    .btn-group(role='group')
+      a.btn.btn-default(href='/clients/new'): i.fa.fa-plus
+    .btn-group(role='group')
+      a.btn.btn-default(href='/clients'): i.fa.fa-users
+
+  h3 Detail View
+
+  .page-header
+    h1= client.name
+  
+  table.table
+    thead
+      tr
+        th Address
+    tbody
+      tr
+        td= client.address

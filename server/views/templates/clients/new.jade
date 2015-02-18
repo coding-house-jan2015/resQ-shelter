@@ -1,0 +1,21 @@
+extends ../../layouts/master
+block content
+
+  .btn-toolbar(role='toolbar')
+    .btn-group(role='group')
+      a.btn.btn-default(href='/clients'): i.fa.fa-users
+
+  h3 New Client
+
+  .row
+    .col-xs-4
+      form(method='post', action='/clients')
+        .form-group
+          label(for='name') Name
+          input#name.form-control(type='text', name='name', autofocus=true)
+        .form-group
+          label(for='address') Address
+          textarea#address.form-control(rows='5', name='address')
+        .form-group
+          button.btn.btn-default(type='submit') Add Client
+    .col-xs-8
