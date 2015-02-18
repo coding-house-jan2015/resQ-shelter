@@ -1,17 +1,26 @@
 extends ../../layouts/master
 block content
-  h3 Animals
-  a(href='/animals/new') New Animal
+
+  .btn-toolbar(role='toolbar')
+    .btn-group(role='group')
+      a.btn.btn-default(href='/animals/new'): i.fa.fa-plus
+
+  h3 Animal Listing
 
   #animals
     each animal in animals
       .animal
-        .photo(style='background-image:url("#{animal.photo}");')
-        .info
-          .name: a(href='/animals/#{animal._id}')= animal.name
-          .description= animal.description
-          .age= animal.age
-          .gender= animal.gender
-          .species= animal.species
-          .breed= animal.breed
-          .adopted= animal.isAdopted
+        .panel.panel-default
+          .panel-heading
+            h3.panel-title: a(href='/animals/#{animal._id}')= animal.name
+          .panel-body
+            dl
+              dt Gender
+              dd= animal.gender
+              dt Age
+              dd= animal.age
+              dt Species
+              dd= animal.species
+              dt Breed
+              dd= animal.breed
+            .photo(style='background-image:url("'+animal.photo+'")')

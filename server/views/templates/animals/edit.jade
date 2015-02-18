@@ -1,6 +1,18 @@
 extends ../../layouts/master
 block content
-  h3= animal.name
+
+  .btn-toolbar(role='toolbar')
+    .btn-group(role='group')
+      form(method='post', action='/animals/#{animal._id}/delete')
+        button.btn.btn-danger(type='submit'): i.fa.fa-times
+    .btn-group(role='group')
+      a.btn.btn-default(href='/animals/#{animal._id}'): i.fa.fa-desktop
+    .btn-group(role='group')
+      a.btn.btn-default(href='/animals/new'): i.fa.fa-plus
+    .btn-group(role='group')
+      a.btn.btn-default(href='/animals'): i.fa.fa-paw
+
+  h3 Edit Animal
   
   .row
     .col-xs-4

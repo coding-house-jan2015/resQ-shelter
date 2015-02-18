@@ -1,7 +1,12 @@
 extends ../../layouts/master
 block content
+
+  .btn-toolbar(role='toolbar')
+    .btn-group(role='group')
+      a.btn.btn-default(href='/animals'): i.fa.fa-paw
+
   h3 New Animal
-  
+
   .row
     .col-xs-4
       form(method='post', action='/animals')
