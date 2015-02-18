@@ -4,8 +4,33 @@ block content
   .btn-toolbar(role='toolbar')
     .btn-group(role='group')
       a.btn.btn-default(href='/animals/new'): i.fa.fa-plus
+    .btn-group(role='group')
+      a.btn.btn-default(href='/animals'): i.fa.fa-paw
 
   h3 Animal Listing
+
+  #filter
+    form(method='get', action='/animals')
+      label Min Age
+      input(type='number', name='min')
+      label Max Age
+      input(type='number', name='max')
+      label Gender
+      select(name='gender')
+        option 
+        option male
+        option female
+      label Species
+      select(name='species')
+        option
+        option Dog
+        option Cat
+        option Shark
+        option Bird
+        option Walrus
+      label Breed
+      input(type='text', name='breed')
+      button(type='submit') Filter
 
   #animals
     each animal in animals
