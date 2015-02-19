@@ -12,14 +12,17 @@ block content
     .btn-group(role='group')
       a.btn.btn-default(href='/animals'): i.fa.fa-paw
 
+  if(!animal.isAdopted)
+    h3 Adopt Animal
+    form.form-inline(method='post', action='/animals/#{animal._id}/adopt')
+      .form-group
+        select#clientId.form-control.input-sm(name='clientId')
+          each client in clients
+            option(value=client._id)= client.name
+      .form-group
+        button.btn.btn-primary.btn-sm(type='submit') Adopt
+
   h3 Detail View
-
-
-  form(method='post', action='/animals/#{animal._id}/adopt')
-    select(name='clientId')
-      each client in clients
-        option(value=client._id)= client.name
-    button(type='submit') Adopt
 
   .page-header
     h1= animal.name

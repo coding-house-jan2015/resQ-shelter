@@ -7,30 +7,32 @@ block content
     .btn-group(role='group')
       a.btn.btn-default(href='/animals'): i.fa.fa-paw
 
-  h3 Animal Listing
+  h3 Find Animals
 
-  #filter
-    form(method='get', action='/animals')
-      label Min Age
-      input(type='number', name='min')
-      label Max Age
-      input(type='number', name='max')
-      label Gender
-      select(name='gender')
-        option 
-        option male
-        option female
-      label Species
-      select(name='species')
-        option
-        option Dog
-        option Cat
-        option Shark
-        option Bird
-        option Walrus
-      label Breed
-      input(type='text', name='breed')
-      button(type='submit') Filter
+  form.form-inline(method='get', action='/animals')
+    .form-group
+      input#min.form-control.input-sm(type='number', name='min', autofocus=true, placeholder='Min Age')
+    .form-group
+      input#max.form-control.input-sm(type='number', name='max', placeholder='Max Age')
+    .form-group
+      input#breed.form-control.input-sm(type='text', name='breed', placeholder='Breed')
+    .form-group
+      select#gender.form-control.input-sm(name='gender')
+        option(value='') Pick Gender
+        option(value='male') male
+        option(value='female') female
+    .form-group
+      select#species.form-control.input-sm(name='species')
+        option(value='') Pick Species
+        option(value='Dog') Dog
+        option(value='Cat') Cat
+        option(value='Shark') Shark
+        option(value='Bird') Bird
+        option(value='Walrus') Walrus
+    .form-group
+      button.btn.btn-primary.btn-sm(type='submit') Filter
+
+  h3 Animal Listing
 
   #animals
     each animal in animals

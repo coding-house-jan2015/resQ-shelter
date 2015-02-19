@@ -24,3 +24,10 @@ block content
     tbody
       tr
         td= client.address
+
+  h3 Adopted Animals
+  #animals
+    each animal in client.pets
+      .animal
+        h5: a(href='/animals/#{animal._id}')= animal.name
+        .photo(style='background-image:url("'+animal.photo+'")')
